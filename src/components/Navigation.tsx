@@ -30,6 +30,11 @@ export default function Navigation() {
     return () => window.removeEventListener('scroll', handleScroll)
   }, [])
 
+  useEffect(() => {
+    document.body.style.overflow = isMenuOpen ? 'hidden' : 'unset'
+    return () => { document.body.style.overflow = 'unset' }
+  }, [isMenuOpen])
+
   const menuItems = [
     { href: "#services", label: "Services", icon: "✨" },
     { href: "#portfolio", label: "Portfolio", icon: "🎨" },
@@ -88,12 +93,9 @@ export default function Navigation() {
         </button>
       </div>
 
-      {/* Mobile menu */}
-      <div
-        className={`mobile-menu ${isMenuOpen ? 'mobile-menu-active' : ''}`}
-        onClick={() => setIsMenuOpen(false)}
-      >
-        <div className="mobile-menu-container" onClick={e => e.stopPropagation()}>
+      {/* Mobile menu simple */}
+      {isMenuOpen && (
+        <div className="mobile-menu-simple">
           {menuItems.map((item) => (
             <a
               key={item.href}
@@ -109,7 +111,7 @@ export default function Navigation() {
             </a>
           ))}
         </div>
-      </div>
+      )}
     </nav>
   )
 } 
