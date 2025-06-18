@@ -1,17 +1,18 @@
 import './globals.css'
-import { Inter, Playfair_Display } from 'next/font/google'
+import { Montserrat, Cormorant_Garamond } from 'next/font/google'
 import { Metadata } from 'next'
 
-const inter = Inter({ 
+const montserrat = Montserrat({ 
   subsets: ['latin'],
-  variable: '--font-inter',
+  variable: '--font-montserrat',
   display: 'swap',
 })
 
-const playfair = Playfair_Display({ 
+const cormorant = Cormorant_Garamond({ 
   subsets: ['latin'],
-  variable: '--font-playfair-display',
+  variable: '--font-cormorant',
   display: 'swap',
+  weight: ['300', '400', '500', '600', '700']
 })
 
 export const metadata: Metadata = {
@@ -37,14 +38,14 @@ export default function RootLayout({
   return (
     <html 
       lang="fr" 
-      className={`${inter.variable} ${playfair.variable}`}
+      className={`${montserrat.variable} ${cormorant.variable}`}
       suppressHydrationWarning
     >
       <head>
         <meta charSet="utf-8" />
-        <meta name="theme-color" content="#ffffff" />
+        <meta name="theme-color" content="#F7F4EF" />
       </head>
-      <body className="font-sans antialiased bg-white dark:bg-gray-900 grain">
+      <body className="font-sans antialiased bg-background text-text grain">
         <main>
           {children}
         </main>

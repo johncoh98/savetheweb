@@ -1,6 +1,7 @@
 "use client"
 
 import { useState, FormEvent } from 'react'
+import { motion } from 'framer-motion'
 
 export default function Contact() {
   const [formData, setFormData] = useState({
@@ -33,17 +34,29 @@ export default function Contact() {
   return (
     <section id="contact" className="section">
       <div className="container">
-        <div className="text-center mb-8">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6 }}
+          viewport={{ once: true }}
+          className="text-center mb-8"
+        >
           <h2>Contactez-nous</h2>
           <p className="text-text-light max-w-2xl mx-auto">
             Prêt à créer le site de mariage de vos rêves ? Nous sommes là pour vous accompagner 
             dans chaque étape de votre projet.
           </p>
-        </div>
+        </motion.div>
 
-        <div className="card max-w-2xl mx-auto">
+        <motion.div 
+          className="card max-w-2xl mx-auto"
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, delay: 0.2 }}
+          viewport={{ once: true }}
+        >
           <form onSubmit={handleSubmit} className="space-y-6">
-            <div className="grid md:grid-cols-2 gap-4">
+            <div className="grid grid-cols-2 gap-4">
               <div className="form-group">
                 <label htmlFor="name" className="form-label">
                   Nom complet
@@ -142,8 +155,8 @@ export default function Contact() {
               </a>
             </div>
           </form>
-        </div>
+        </motion.div>
       </div>
     </section>
   )
-} 
+}

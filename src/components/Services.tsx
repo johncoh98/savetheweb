@@ -1,3 +1,7 @@
+"use client"
+
+import { motion } from 'framer-motion'
+
 export default function Services() {
   const services = [
     {
@@ -35,36 +39,44 @@ export default function Services() {
   return (
     <section id="services" className="section">
       <div className="container">
-        <h2>Nos Services</h2>
-        <p className="text-center text-text-light max-w-2xl mx-auto mb-8">
-          Des solutions complètes pour créer le site de mariage de vos rêves, 
-          avec un design unique et une expérience utilisateur exceptionnelle.
-        </p>
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6 }}
+          viewport={{ once: true }}
+        >
+          <h2>Nos Services</h2>
+          <p className="text-center text-text-light max-w-2xl mx-auto mb-8">
+            Des solutions complètes pour créer le site de mariage de vos rêves, 
+            avec un design unique et une expérience utilisateur exceptionnelle.
+          </p>
+        </motion.div>
 
-        <div className="grid md:grid-cols-3 gap-8">
+        <div className="grid grid-cols-3 gap-8">
           {services.map((service, index) => (
-            <div 
+            <motion.div 
               key={service.title}
               className="card"
-              style={{
-                animationDelay: `${index * 0.2}s`
-              }}
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: index * 0.2 }}
+              viewport={{ once: true }}
             >
               <div className="text-4xl mb-4">{service.icon}</div>
-              <h3 className="text-xl font-bold mb-4">{service.title}</h3>
-              <p className="text-text-light mb-6">{service.description}</p>
+              <h3 className="card-title">{service.title}</h3>
+              <p className="card-description">{service.description}</p>
               <ul className="space-y-2">
                 {service.features.map((feature) => (
                   <li key={feature} className="flex items-center">
-                    <span className="text-primary mr-2">✓</span>
+                    <span className="text-accent mr-2">✓</span>
                     {feature}
                   </li>
                 ))}
               </ul>
-            </div>
+            </motion.div>
           ))}
         </div>
       </div>
     </section>
   )
-} 
+}

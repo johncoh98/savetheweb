@@ -55,7 +55,7 @@ export default function Navigation() {
 
   return (
     <nav className={`nav ${isScrolled ? 'nav-scrolled' : ''}`}>
-      <div className="container nav-container">
+      <div className="nav-container">
         <Link href="/" className="nav-logo">
           <span className="logo-text">Save The Web</span>
           <span className="logo-dot"></span>
@@ -93,7 +93,7 @@ export default function Navigation() {
         </button>
       </div>
 
-      {/* Mobile menu simple */}
+      {/* Mobile menu */}
       {isMenuOpen && (
         <div className="mobile-menu-simple">
           {menuItems.map((item) => (
@@ -114,4 +114,4 @@ export default function Navigation() {
       )}
     </nav>
   )
-} 
+}
