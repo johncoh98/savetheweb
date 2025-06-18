@@ -1,41 +1,37 @@
-/* Fonts */
-@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Montserrat:wght@300;400;500;600;700&display=swap');
+/* ---------------------------------------------------------- */
+/*  1. Design System (Variables réutilisables)               */
+/* ---------------------------------------------------------- */
 
-/* Design System */
 :root {
-  /* Colors */
+  /* Couleurs */
   --color-background: #F7F4EF;
   --color-text: #1C1C1C;
   --color-primary: #2E2D2B;
   --color-primary-light: #403F3D;
   --color-primary-dark: #1A1918;
-  
   --color-secondary: #D7B8A0;
   --color-secondary-light: #E5CCBA;
   --color-secondary-dark: #C6AA83;
-  
   --color-accent: #C6AA83;
   --color-accent-light: #D4BEA0;
   --color-accent-dark: #B89666;
-
   --color-rose: #F4D0D0;
   --color-rose-light: #FBE4E4;
   --color-rose-dark: #E5B8B8;
-  
   --color-surface: #FFFFFF;
   --color-surface-alt: #F0EDE8;
   --color-text-light: #666666;
-  
-  /* RGB Values for opacity operations */
+
+  /* Valeurs RGB pour les opérations d'opacité */
   --primary-rgb: 46, 45, 43;
   --secondary-rgb: 215, 184, 160;
   --accent-rgb: 198, 170, 131;
-  
-  /* Typography */
+
+  /* Typographie */
   --font-serif: 'Cormorant Garamond', serif;
   --font-sans: 'Montserrat', sans-serif;
-  
-  /* Font Sizes */
+
+  /* Tailles de police */
   --text-xs: 0.75rem;
   --text-sm: 0.875rem;
   --text-base: 1rem;
@@ -45,58 +41,65 @@
   --text-3xl: 2rem;
   --text-4xl: 2.5rem;
   --text-5xl: 3rem;
-  
-  /* Line Heights */
+
+  /* Hauteurs de ligne */
   --leading-none: 1;
   --leading-tight: 1.2;
   --leading-snug: 1.375;
   --leading-normal: 1.5;
   --leading-relaxed: 1.625;
-  
-  /* Letter Spacing */
+
+  /* Espacement des lettres */
   --tracking-tight: -0.025em;
   --tracking-normal: 0;
   --tracking-wide: 0.025em;
   --tracking-wider: 0.05em;
   --tracking-widest: 0.1em;
-  
-  /* Spacing */
+
+  /* Espacement */
   --spacing-xs: 0.25rem;
   --spacing-sm: 0.5rem;
   --spacing-md: 1rem;
   --spacing-lg: 2rem;
   --spacing-xl: 4rem;
-  
-  /* Shadows */
+
+  /* Ombres */
   --shadow-sm: 0 2px 4px rgba(46, 45, 43, 0.05);
   --shadow-md: 0 4px 6px rgba(46, 45, 43, 0.1);
   --shadow-lg: 0 10px 15px rgba(46, 45, 43, 0.1);
-  
-  /* Border Radius */
+
+  /* Rayon de bordure */
   --radius-sm: 0.25rem;
   --radius-md: 0.5rem;
   --radius-lg: 1rem;
   --radius-full: 9999px;
 }
 
-/* Reset et base */
+/* ---------------------------------------------------------- */
+/*  2. Reset et base (Styles de base pour tous les éléments) */
+/* ---------------------------------------------------------- */
+
+/* Reset pour tous les éléments */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
+/* Styles pour html et body */
 html, body {
   height: 100%;
   width: 100%;
   overflow-x: hidden;
 }
 
+/* Scroll smooth pour la navigation */
 html {
   scroll-behavior: smooth;
   scroll-padding-top: 5rem;
 }
 
+/* Styles de base pour le body */
 body {
   font-family: var(--font-sans);
   font-weight: 300;
@@ -105,19 +108,24 @@ body {
   color: var(--color-text);
   background: var(--color-background);
   position: relative;
-  overflow-y: scroll !important; /* Force scroll */
+  overflow-y: scroll !important; /* Force le scroll */
   -webkit-overflow-scrolling: touch; /* Pour iOS */
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
+/* Isolation pour le conteneur Next.js */
 #__next {
   isolation: isolate;
   position: relative;
   z-index: 1;
 }
 
-/* Typography */
+/* ---------------------------------------------------------- */
+/*  3. Typographie (Styles pour les titres et paragraphes)    */
+/* ---------------------------------------------------------- */
+
+/* Styles pour les titres */
 h1, h2, h3, h4, h5, h6 {
   font-family: var(--font-serif);
   font-weight: 600;
@@ -125,6 +133,7 @@ h1, h2, h3, h4, h5, h6 {
   letter-spacing: var(--tracking-tight);
 }
 
+/* Styles spécifiques pour chaque niveau de titre */
 h1 {
   font-size: clamp(2.5rem, 5vw, 4rem);
   margin-bottom: 1.5rem;
@@ -143,29 +152,24 @@ h3 {
   font-weight: 400;
 }
 
+/* Styles pour les paragraphes */
 p {
   margin-bottom: 1.5rem;
   font-weight: 300;
   letter-spacing: var(--tracking-wide);
 }
 
-.text-light {
-  font-weight: 300;
-}
+/* Classes utilitaires pour le poids de la police */
+.text-light { font-weight: 300; }
+.text-regular { font-weight: 400; }
+.text-medium { font-weight: 500; }
+.text-semibold { font-weight: 600; }
 
-.text-regular {
-  font-weight: 400;
-}
+/* ---------------------------------------------------------- */
+/*  4. Layout (Styles pour la structure de la page)           */
+/* ---------------------------------------------------------- */
 
-.text-medium {
-  font-weight: 500;
-}
-
-.text-semibold {
-  font-weight: 600;
-}
-
-/* Layout */
+/* Styles pour le conteneur principal */
 .container {
   width: 100%;
   max-width: 1200px;
@@ -173,13 +177,18 @@ p {
   padding: 0 1rem;
 }
 
+/* Styles pour les sections */
 .section {
   padding: 6rem 0;
   position: relative;
   overflow: hidden;
 }
 
-/* Navigation */
+/* ---------------------------------------------------------- */
+/*  5. Navigation (Styles pour la barre de navigation)        */
+/* ---------------------------------------------------------- */
+
+/* Styles de base pour la navigation */
 .nav {
   position: fixed;
   top: 0;
@@ -192,12 +201,14 @@ p {
   transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
+/* Styles pour la navigation défilée */
 .nav-scrolled {
   background: rgba(46, 45, 43, 0.98);
   box-shadow: 0 4px 30px rgba(28, 28, 28, 0.1);
   border-bottom: 1px solid rgba(198, 170, 131, 0.3);
 }
 
+/* Styles pour le conteneur de la navigation */
 .nav-container {
   display: flex;
   justify-content: space-between;
@@ -209,10 +220,12 @@ p {
   transition: height 0.3s ease;
 }
 
+/* Réduction de la hauteur de la navigation défilée */
 .nav-scrolled .nav-container {
   height: 4rem;
 }
 
+/* Styles pour le logo */
 .nav-logo {
   position: relative;
   font-family: var(--font-serif);
@@ -226,16 +239,19 @@ p {
   letter-spacing: -0.02em;
 }
 
+/* Changement de couleur et de taille du logo défilé */
 .nav-scrolled .nav-logo {
   color: var(--color-accent);
   font-size: 1.5rem;
 }
 
+/* Styles pour le texte du logo */
 .logo-text {
   position: relative;
   z-index: 1;
 }
 
+/* Styles pour le point du logo */
 .logo-dot {
   position: absolute;
   right: -8px;
@@ -249,16 +265,19 @@ p {
   transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
+/* Animation du point au survol du logo */
 .nav-logo:hover .logo-dot {
   opacity: 1;
   transform: scale(1);
 }
 
+/* Styles pour le menu de navigation */
 .nav-menu {
   display: flex;
   gap: 3rem;
 }
 
+/* Styles pour les liens de navigation */
 .nav-link {
   position: relative;
   display: flex;
@@ -273,10 +292,12 @@ p {
   letter-spacing: 0.02em;
 }
 
+/* Changement de couleur des liens défilés */
 .nav-scrolled .nav-link {
   color: var(--color-background);
 }
 
+/* Animation de la ligne sous les liens */
 .nav-link::before {
   content: '';
   position: absolute;
@@ -290,12 +311,14 @@ p {
   transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
+/* Affichage de la ligne au survol et pour le lien actif */
 .nav-link:hover::before,
 .nav-link-active::before {
   transform: scaleX(1);
   transform-origin: left;
 }
 
+/* Styles pour l'icône des liens */
 .nav-link-icon {
   font-size: 1.1em;
   opacity: 0.8;
@@ -303,12 +326,14 @@ p {
   transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
+/* Animation de l'icône au survol */
 .nav-link:hover .nav-link-icon {
   opacity: 1;
   transform: translateY(-2px) scale(1.1);
   color: var(--color-accent);
 }
 
+/* Styles pour le bouton du menu mobile */
 .menu-button {
   display: none;
   background: none;
@@ -320,10 +345,12 @@ p {
   z-index: 51;
 }
 
+/* Changement de couleur du bouton défilé */
 .nav-scrolled .menu-button {
   color: var(--color-background);
 }
 
+/* Styles pour l'intérieur du bouton */
 .menu-button-inner {
   width: 24px;
   height: 20px;
@@ -333,6 +360,7 @@ p {
   justify-content: space-between;
 }
 
+/* Styles pour les barres du bouton */
 .menu-button-inner span {
   display: block;
   width: 100%;
@@ -342,6 +370,7 @@ p {
   transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
+/* Animation des barres lorsque le menu est actif */
 .menu-button-active span:nth-child(1) {
   transform: translateY(9px) rotate(45deg);
   background: var(--color-accent);
@@ -357,95 +386,11 @@ p {
   background: var(--color-accent);
 }
 
-.mobile-menu {
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background: rgba(46, 45, 43, 0.98);
-  backdrop-filter: blur(12px);
-  z-index: 49;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding-top: 5rem;
-  will-change: transform, opacity;
-}
+/* ---------------------------------------------------------- */
+/*  6. Hero Section (Styles pour la section d'accueil)        */
+/* ---------------------------------------------------------- */
 
-.mobile-menu-container {
-  padding: 2rem;
-  display: flex;
-  flex-direction: column;
-  gap: 2rem;
-  width: 100%;
-  max-width: 400px;
-  margin: 0 auto;
-  will-change: transform, opacity;
-}
-
-.mobile-menu-link {
-  display: flex;
-  align-items: center;
-  gap: 1rem;
-  font-size: 2rem;
-  font-weight: 500;
-  color: var(--color-background);
-  text-decoration: none;
-  padding: 1rem;
-  border-radius: 0.5rem;
-  transition: all 0.3s ease;
-  letter-spacing: 0.02em;
-  border: 1px solid transparent;
-  position: relative;
-  overflow: hidden;
-  will-change: transform, opacity;
-}
-
-.mobile-menu-link::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: var(--color-accent);
-  opacity: 0;
-  transform: translateX(-100%);
-  transition: all 0.3s ease;
-  z-index: -1;
-  will-change: transform, opacity;
-}
-
-.mobile-menu-link:hover {
-  color: var(--color-primary);
-  transform: translateX(10px);
-}
-
-.mobile-menu-link:hover::before {
-  opacity: 0.1;
-  transform: translateX(0);
-}
-
-@media (max-width: 768px) {
-  .nav {
-    position: relative;
-  }
-  .nav-menu {
-    display: none;
-  }
-  .menu-button {
-    display: block;
-  }
-  .nav-container {
-    padding: 0 1.5rem;
-  }
-  .nav-logo {
-    font-size: 1.5rem;
-  }
-}
-
-/* Hero Section */
+/* Styles de base pour la section Hero */
 .hero {
   position: relative;
   min-height: 100vh;
@@ -456,6 +401,7 @@ p {
   background: linear-gradient(135deg, var(--color-background) 0%, #F0EBE4 100%);
 }
 
+/* Styles pour le canvas des particules */
 .particles-canvas {
   position: absolute;
   top: 0;
@@ -465,6 +411,7 @@ p {
   z-index: 1;
 }
 
+/* Styles pour le contenu de la section Hero */
 .hero-content {
   position: relative;
   z-index: 2;
@@ -473,18 +420,21 @@ p {
   padding: 2rem;
 }
 
+/* Styles pour le titre de la section Hero */
 .hero-title {
   font-size: 4rem;
   margin-bottom: 1.5rem;
   color: var(--color-primary);
 }
 
+/* Styles pour le texte mis en évidence dans le titre */
 .hero-title .highlight {
   color: var(--color-secondary);
   position: relative;
   display: inline-block;
 }
 
+/* Animation de la ligne sous le texte mis en évidence */
 .hero-title .highlight::after {
   content: '';
   position: absolute;
@@ -498,24 +448,31 @@ p {
   transition: transform 0.6s cubic-bezier(0.19, 1, 0.22, 1);
 }
 
+/* Affichage de la ligne au survol du titre */
 .hero-title:hover .highlight::after {
   transform: scaleX(1);
   transform-origin: left;
 }
 
+/* Styles pour le sous-titre de la section Hero */
 .hero-subtitle {
   font-size: 1.25rem;
   color: var(--color-text-light);
   margin-bottom: 2rem;
 }
 
+/* Styles pour les boutons d'action de la section Hero */
 .hero-cta {
   display: flex;
   gap: 1rem;
   justify-content: center;
 }
 
-/* Buttons */
+/* ---------------------------------------------------------- */
+/*  7. Buttons (Styles pour les boutons)                      */
+/* ---------------------------------------------------------- */
+
+/* Styles de base pour les boutons */
 .btn {
   padding: 1rem 2rem;
   border-radius: 50px;
@@ -527,23 +484,27 @@ p {
   font-size: 1rem;
 }
 
+/* Styles pour le bouton principal */
 .btn-primary {
   background: var(--color-primary);
   color: var(--color-surface);
 }
 
+/* Animation au survol du bouton principal */
 .btn-primary:hover {
   background: var(--color-secondary);
   transform: translateY(-2px);
   box-shadow: 0 4px 15px var(--shadow-md);
 }
 
+/* Styles pour le bouton secondaire */
 .btn-secondary {
   background: transparent;
   color: var(--color-primary);
   border: 2px solid var(--color-primary);
 }
 
+/* Animation au survol du bouton secondaire */
 .btn-secondary:hover {
   background: var(--color-primary);
   color: var(--color-surface);
@@ -551,7 +512,11 @@ p {
   box-shadow: 0 4px 15px var(--shadow-md);
 }
 
-/* Hero Decoration */
+/* ---------------------------------------------------------- */
+/*  8. Hero Decoration (Styles pour les éléments décoratifs)   */
+/* ---------------------------------------------------------- */
+
+/* Styles pour la décoration de la section Hero */
 .hero-decoration {
   position: absolute;
   top: 0;
@@ -562,6 +527,7 @@ p {
   z-index: 1;
 }
 
+/* Styles pour les éléments flottants */
 .floating-element {
   position: absolute;
   background: var(--color-secondary);
@@ -570,6 +536,7 @@ p {
   animation: float 8s infinite ease-in-out;
 }
 
+/* Styles spécifiques pour chaque élément flottant */
 .floating-element:nth-child(1) {
   width: 300px;
   height: 300px;
@@ -594,6 +561,7 @@ p {
   animation-delay: -4s;
 }
 
+/* Animation des éléments flottants */
 @keyframes float {
   0%, 100% {
     transform: translateY(0) rotate(0deg);
@@ -603,7 +571,11 @@ p {
   }
 }
 
-/* Responsive Design */
+/* ---------------------------------------------------------- */
+/*  9. Responsive Design (Styles pour les écrans plus petits)  */
+/* ---------------------------------------------------------- */
+
+/* Styles pour les écrans de 768px et moins */
 @media (max-width: 768px) {
   .hero-title {
     font-size: 2.5rem;
@@ -622,7 +594,11 @@ p {
   }
 }
 
-/* Animations */
+/* ---------------------------------------------------------- */
+/* 10. Animations (Styles pour les animations)               */
+/* ---------------------------------------------------------- */
+
+/* Animation de fondu */
 @keyframes fadeIn {
   from {
     opacity: 0;
@@ -634,16 +610,22 @@ p {
   }
 }
 
+/* Classe pour l'animation de fondu */
 .fade-up {
   animation: fadeIn 0.8s ease-out forwards;
 }
 
+/* Délais d'animation */
 .delay-1 { animation-delay: 0.2s; }
 .delay-2 { animation-delay: 0.4s; }
 .delay-3 { animation-delay: 0.6s; }
 .delay-4 { animation-delay: 0.8s; }
 
-/* Cards */
+/* ---------------------------------------------------------- */
+/* 11. Cards (Styles pour les cartes)                         */
+/* ---------------------------------------------------------- */
+
+/* Styles de base pour les cartes */
 .card {
   background: var(--color-surface);
   border-radius: 1rem;
@@ -657,6 +639,7 @@ p {
   flex-direction: column;
 }
 
+/* Ligne de couleur en haut de la carte */
 .card::before {
   content: '';
   position: absolute;
@@ -672,6 +655,7 @@ p {
   transition: opacity 0.3s ease;
 }
 
+/* Animation au survol de la carte */
 .card:hover {
   transform: translateY(-8px);
   box-shadow: 
@@ -679,10 +663,12 @@ p {
     0 10px 10px -5px rgba(0, 0, 0, 0.04);
 }
 
+/* Affichage de la ligne de couleur au survol */
 .card:hover::before {
   opacity: 1;
 }
 
+/* Styles pour l'image de la carte */
 .card-image {
   border-radius: 0.5rem;
   overflow: hidden;
@@ -690,6 +676,7 @@ p {
   position: relative;
 }
 
+/* Effet de dégradé sur l'image */
 .card-image::after {
   content: '';
   position: absolute;
@@ -706,27 +693,35 @@ p {
   transition: opacity 0.3s ease;
 }
 
+/* Affichage du dégradé au survol */
 .card:hover .card-image::after {
   opacity: 1;
 }
 
+/* Styles pour le titre de la carte */
 .card-title {
   font-size: 1.5rem;
   margin-bottom: 0.75rem;
   color: var(--color-primary);
 }
 
+/* Styles pour la description de la carte */
 .card-description {
   color: var(--color-text-light);
   margin-bottom: 1.5rem;
   flex-grow: 1;
 }
 
-/* Forms */
+/* ---------------------------------------------------------- */
+/* 12. Forms (Styles pour les formulaires)                     */
+/* ---------------------------------------------------------- */
+
+/* Styles pour le groupe de formulaire */
 .form-group {
   margin-bottom: var(--spacing-lg);
 }
 
+/* Styles pour le label du formulaire */
 .form-label {
   display: block;
   margin-bottom: var(--spacing-sm);
@@ -734,6 +729,7 @@ p {
   color: var(--color-text);
 }
 
+/* Styles pour l'input du formulaire */
 .form-input {
   width: 100%;
   padding: var(--spacing-md);
@@ -745,13 +741,18 @@ p {
   color: var(--color-text);
 }
 
+/* Styles pour l'input au focus */
 .form-input:focus {
   outline: none;
   border-color: var(--color-accent);
   box-shadow: 0 0 0 3px rgba(var(--accent-rgb), 0.1);
 }
 
-/* Animations */
+/* ---------------------------------------------------------- */
+/* 13. Animations (Animations avancées)                       */
+/* ---------------------------------------------------------- */
+
+/* Animation de fondu et de glissement vers le haut */
 @keyframes fadeInUp {
   from {
     opacity: 0;
@@ -763,6 +764,7 @@ p {
   }
 }
 
+/* Animation de pulsation */
 @keyframes pulse {
   0%, 100% {
     transform: scale(1);
@@ -772,22 +774,25 @@ p {
   }
 }
 
-/* Animations sophistiquées */
+/* Animation de flottement */
 @keyframes float {
   0%, 100% { transform: translate3d(0, 0, 0); }
   50% { transform: translate3d(0, -10px, 0); }
 }
 
+/* Animation de scintillement */
 @keyframes shimmer {
   0% { background-position: -100% 0; }
   100% { background-position: 100% 0; }
 }
 
+/* Animation de révélation */
 @keyframes reveal {
   0% { transform: scaleX(0); }
   100% { transform: scaleX(1); }
 }
 
+/* Animation de fondu et d'échelle */
 @keyframes fadeScale {
   0% {
     opacity: 0;
@@ -813,7 +818,7 @@ p {
     transparent
   );
   background-size: 200% 100%;
-  animation: shine 3s infinite;
+  animation: shimmer 3s infinite;
   will-change: background-position;
 }
 
@@ -839,7 +844,11 @@ p {
   will-change: transform, opacity;
 }
 
-/* Effets de survol améliorés */
+/* ---------------------------------------------------------- */
+/* 14. Effets de survol (Styles pour les effets de survol)    */
+/* ---------------------------------------------------------- */
+
+/* Effet de soulèvement au survol */
 .hover-lift {
   transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   will-change: transform;
@@ -849,6 +858,7 @@ p {
   transform: translate3d(0, -5px, 0);
 }
 
+/* Effet de lueur au survol */
 .hover-glow {
   transition: box-shadow 0.3s ease;
 }
@@ -857,7 +867,11 @@ p {
   box-shadow: 0 0 20px rgba(198, 170, 131, 0.3);
 }
 
-/* Effets de texte créatifs */
+/* ---------------------------------------------------------- */
+/* 15. Effets de texte (Styles pour les effets de texte)      */
+/* ---------------------------------------------------------- */
+
+/* Texte avec dégradé */
 .text-gradient {
   background: linear-gradient(135deg, 
     var(--color-primary) 0%,
@@ -870,10 +884,12 @@ p {
   animation: shimmer 8s linear infinite;
 }
 
+/* Texte avec ombre */
 .text-shadow {
   text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
 }
 
+/* Texte avec lueur */
 .text-glow {
   text-shadow: 0 0 10px rgba(198, 170, 131, 0.5);
   transition: text-shadow 0.3s ease;
@@ -883,12 +899,17 @@ p {
   text-shadow: 0 0 20px rgba(198, 170, 131, 0.8);
 }
 
-/* Effet de grain optimisé */
+/* ---------------------------------------------------------- */
+/* 16. Effet de grain (Styles pour l'effet de grain)          */
+/* ---------------------------------------------------------- */
+
+/* Conteneur avec effet de grain */
 .grain {
   position: relative;
   overflow: visible;
 }
 
+/* Effet de grain en SVG */
 .grain::before {
   content: '';
   position: absolute;
@@ -904,7 +925,11 @@ p {
   z-index: 0;
 }
 
-/* Effet de parallaxe optimisé */
+/* ---------------------------------------------------------- */
+/* 17. Effet de parallaxe (Styles pour l'effet de parallaxe)  */
+/* ---------------------------------------------------------- */
+
+/* Conteneur avec effet de parallaxe */
 .parallax {
   transform: translate3d(0, var(--parallax-y, 0), 0);
   will-change: transform;
@@ -912,7 +937,11 @@ p {
   z-index: 1;
 }
 
-/* Container principal */
+/* ---------------------------------------------------------- */
+/* 18. Container principal (Styles pour le container principal)*/
+/* ---------------------------------------------------------- */
+
+/* Styles pour le container principal */
 .main-container {
   position: relative;
   z-index: 1;
@@ -920,425 +949,1011 @@ p {
   width: 100%;
 }
 
-/* Grid System */
+/* ---------------------------------------------------------- */
+/* 19. Grid System (Styles pour le système de grille)         */
+/* ---------------------------------------------------------- */
+
+/* Styles pour la grille */
 .grid {
   display: grid;
   gap: 2rem;
   width: 100%;
 }
 
+/* Grille à 2 colonnes pour les écrans moyens */
 @media (min-width: 640px) {
   .grid-cols-2 {
     grid-template-columns: repeat(2, 1fr);
   }
 }
 
+/* Grille à 4 colonnes pour les grands écrans */
 @media (min-width: 1024px) {
   .grid-cols-4 {
     grid-template-columns: repeat(4, 1fr);
   }
 }
 
-/* Utilities */
-.text-center { text-align: center; }
-.mb-2 { margin-bottom: 0.5rem; }
-.mb-4 { margin-bottom: 1rem; }
-.mb-8 { margin-bottom: 2rem; }
-.mt-4 { margin-top: var(--spacing-md); }
-.mr-2 { margin-right: var(--spacing-sm); }
-.flex { display: flex; }
-.items-center { align-items: center; }
-.justify-center { justify-content: center; }
-.gap-4 { gap: var(--spacing-md); }
-.gap-8 { gap: var(--spacing-lg); }
-.w-full { width: 100%; }
-.max-w-2xl { max-width: 42rem; }
-.mx-auto { margin-left: auto; margin-right: auto; }
-.space-y-2 > * + * { margin-top: var(--spacing-sm); }
-.text-xl { font-size: 1.25rem; }
-.text-4xl { font-size: 2.5rem; }
-.font-bold { font-weight: 700; }
-.text-primary { color: var(--color-primary); }
-.text-text-light { color: var(--color-text-light); }
-.overflow-hidden { overflow: hidden; }
-.aspect-video { aspect-ratio: 16 / 9; }
-.relative { position: relative; }
-.p-6 { padding: var(--spacing-lg); }
+/* ---------------------------------------------------------- */
+/* 20. Utilities (Classes utilitaires)                        */
+/* ------------------------------------------------/* filepath: c:\Users\גלית איכות הסביבה\Desktop\אישי\site-perso\src\app\globals.css */
 
-/* Sections avec parallaxe */
-.section-parallax {
-  position: relative;
-  overflow: hidden;
+/* ---------------------------------------------------------- */
+/*  1. Design System (Variables réutilisables)               */
+/* ---------------------------------------------------------- */
+
+:root {
+  /* Couleurs */
+  --color-background: #F7F4EF;
+  --color-text: #1C1C1C;
+  --color-primary: #2E2D2B;
+  --color-primary-light: #403F3D;
+  --color-primary-dark: #1A1918;
+  --color-secondary: #D7B8A0;
+  --color-secondary-light: #E5CCBA;
+  --color-secondary-dark: #C6AA83;
+  --color-accent: #C6AA83;
+  --color-accent-light: #D4BEA0;
+  --color-accent-dark: #B89666;
+  --color-rose: #F4D0D0;
+  --color-rose-light: #FBE4E4;
+  --color-rose-dark: #E5B8B8;
+  --color-surface: #FFFFFF;
+  --color-surface-alt: #F0EDE8;
+  --color-text-light: #666666;
+
+  /* Valeurs RGB pour les opérations d'opacité */
+  --primary-rgb: 46, 45, 43;
+  --secondary-rgb: 215, 184, 160;
+  --accent-rgb: 198, 170, 131;
+
+  /* Typographie */
+  --font-serif: 'Cormorant Garamond', serif;
+  --font-sans: 'Montserrat', sans-serif;
+
+  /* Tailles de police */
+  --text-xs: 0.75rem;
+  --text-sm: 0.875rem;
+  --text-base: 1rem;
+  --text-lg: 1.125rem;
+  --text-xl: 1.25rem;
+  --text-2xl: 1.5rem;
+  --text-3xl: 2rem;
+  --text-4xl: 2.5rem;
+  --text-5xl: 3rem;
+
+  /* Hauteurs de ligne */
+  --leading-none: 1;
+  --leading-tight: 1.2;
+  --leading-snug: 1.375;
+  --leading-normal: 1.5;
+  --leading-relaxed: 1.625;
+
+  /* Espacement des lettres */
+  --tracking-tight: -0.025em;
+  --tracking-normal: 0;
+  --tracking-wide: 0.025em;
+  --tracking-wider: 0.05em;
+  --tracking-widest: 0.1em;
+
+  /* Espacement */
+  --spacing-xs: 0.25rem;
+  --spacing-sm: 0.5rem;
+  --spacing-md: 1rem;
+  --spacing-lg: 2rem;
+  --spacing-xl: 4rem;
+
+  /* Ombres */
+  --shadow-sm: 0 2px 4px rgba(46, 45, 43, 0.05);
+  --shadow-md: 0 4px 6px rgba(46, 45, 43, 0.1);
+  --shadow-lg: 0 10px 15px rgba(46, 45, 43, 0.1);
+
+  /* Rayon de bordure */
+  --radius-sm: 0.25rem;
+  --radius-md: 0.5rem;
+  --radius-lg: 1rem;
+  --radius-full: 9999px;
 }
 
-.parallax-bg {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 120%;
-  background-size: cover;
-  background-position: center;
-  transform: translateY(var(--parallax-y, 0));
-  will-change: transform;
-  z-index: 0;
+/* ---------------------------------------------------------- */
+/*  2. Reset et base (Styles de base pour tous les éléments) */
+/* ---------------------------------------------------------- */
+
+/* Reset pour tous les éléments */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
-/* Loading et transitions */
-.loading {
-  position: relative;
-  overflow: hidden;
-}
-
-.loading::after {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
+/* Styles pour html et body */
+html, body {
   height: 100%;
-  background: linear-gradient(90deg,
-    transparent,
-    rgba(255, 255, 255, 0.2),
-    transparent);
-  animation: shimmer 1.5s infinite;
+  width: 100%;
+  overflow-x: hidden;
 }
 
-/* Animations au défilement */
-.fade-up {
-  opacity: 0;
-  transform: translateY(20px);
-  animation: fadeUp 0.8s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+/* Scroll smooth pour la navigation */
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 5rem;
 }
 
-@keyframes fadeUp {
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-/* Délais d'animation pour la grille */
-.grid > *:nth-child(1) { animation-delay: 0.1s; }
-.grid > *:nth-child(2) { animation-delay: 0.2s; }
-.grid > *:nth-child(3) { animation-delay: 0.3s; }
-.grid > *:nth-child(4) { animation-delay: 0.4s; }
-
-/* Animations simples */
-.fade-in {
-  opacity: 0;
-  transition: opacity 0.6s ease;
-}
-
-.slide-in {
-  opacity: 0;
-  transform: translateX(-30px);
-  transition: opacity 0.6s ease, transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
-}
-
-.animate-in {
-  opacity: 1;
-  transform: translate(0, 0);
-}
-
-/* Effet de suivi de la souris */
-.mouse-follow {
-  transition: transform 0.2s cubic-bezier(0.4, 0, 0.2, 1);
-}
-
-/* Effets de survol améliorés */
-.hover-scale {
-  transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-}
-
-.hover-scale:hover {
-  transform: scale(1.05);
-}
-
-.hover-lift-shadow {
-  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-}
-
-.hover-lift-shadow:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 10px 20px rgba(46, 45, 43, 0.1);
-}
-
-/* Effets de texte avancés */
-.text-outline {
-  -webkit-text-stroke: 1px var(--color-primary);
-  color: transparent;
-}
-
-.text-shine {
+/* Styles de base pour le body */
+body {
+  font-family: var(--font-sans);
+  font-weight: 300;
+  font-size: var(--text-base);
+  line-height: var(--leading-relaxed);
+  color: var(--color-text);
+  background: var(--color-background);
   position: relative;
-  overflow: hidden;
+  overflow-y: scroll !important; /* Force le scroll */
+  -webkit-overflow-scrolling: touch; /* Pour iOS */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
-.text-shine::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: -100%;
-  width: 50%;
-  height: 100%;
-  background: linear-gradient(
-    120deg,
-    transparent,
-    rgba(255, 255, 255, 0.3),
-    transparent
-  );
-  animation: shine 3s infinite;
-}
-
-/* Sections avec fond dynamique */
-.dynamic-bg {
+/* Isolation pour le conteneur Next.js */
+#__next {
+  isolation: isolate;
   position: relative;
-  overflow: hidden;
+  z-index: 1;
 }
 
-.dynamic-bg::before {
-  content: '';
-  position: absolute;
-  top: -50%;
-  left: -50%;
-  width: 200%;
-  height: 200%;
-  background: radial-gradient(
-    circle at center,
-    rgba(var(--accent-rgb), 0.1) 0%,
-    rgba(var(--secondary-rgb), 0.05) 30%,
-    transparent 70%
-  );
-  animation: rotate 20s linear infinite;
+/* ---------------------------------------------------------- */
+/*  3. Typographie (Styles pour les titres et paragraphes)    */
+/* ---------------------------------------------------------- */
+
+/* Styles pour les titres */
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-serif);
+  font-weight: 600;
+  line-height: var(--leading-tight);
+  letter-spacing: var(--tracking-tight);
 }
 
-@keyframes rotate {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+/* Styles spécifiques pour chaque niveau de titre */
+h1 {
+  font-size: clamp(2.5rem, 5vw, 4rem);
+  margin-bottom: 1.5rem;
+  font-weight: 300;
 }
 
-/* Effets de bordure */
-.border-gradient {
-  position: relative;
-  background: var(--color-surface);
-  padding: 1px;
-  border-radius: var(--radius-lg);
+h2 {
+  font-size: clamp(2rem, 4vw, 3rem);
+  margin-bottom: 2rem;
+  font-weight: 300;
 }
 
-.border-gradient::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  border-radius: inherit;
-  padding: 1px;
-  background: linear-gradient(135deg,
-    var(--color-accent) 0%,
-    var(--color-secondary) 50%,
-    var(--color-accent) 100%);
-  -webkit-mask: 
-    linear-gradient(#fff 0 0) content-box, 
-    linear-gradient(#fff 0 0);
-  mask: 
-    linear-gradient(#fff 0 0) content-box, 
-    linear-gradient(#fff 0 0);
-  -webkit-mask-composite: xor;
-  mask-composite: exclude;
+h3 {
+  font-size: var(--text-2xl);
+  margin-bottom: 1rem;
+  font-weight: 400;
 }
 
-/* Effets de profondeur */
-.depth-effect {
-  position: relative;
+/* Styles pour les paragraphes */
+p {
+  margin-bottom: 1.5rem;
+  font-weight: 300;
+  letter-spacing: var(--tracking-wide);
 }
 
-.depth-effect::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background: inherit;
-  border-radius: inherit;
-  transform: translateZ(-1px);
-  filter: blur(10px);
-  opacity: 0.5;
-  z-index: -1;
+/* Classes utilitaires pour le poids de la police */
+.text-light { font-weight: 300; }
+.text-regular { font-weight: 400; }
+.text-medium { font-weight: 500; }
+.text-semibold { font-weight: 600; }
+
+/* ---------------------------------------------------------- */
+/*  4. Layout (Styles pour la structure de la page)           */
+/* ---------------------------------------------------------- */
+
+/* Styles pour le conteneur principal */
+.container {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1rem;
 }
 
-/* Effets de grille */
-.grid-fade {
-  display: grid;
-  gap: var(--spacing-lg);
-}
-
-.grid-fade > * {
-  opacity: 0;
-  transform: translateY(20px);
-  animation: fadeScale 0.6s cubic-bezier(0.4, 0, 0.2, 1) forwards;
-}
-
-.grid-fade > *:nth-child(1) { animation-delay: 0.1s; }
-.grid-fade > *:nth-child(2) { animation-delay: 0.2s; }
-.grid-fade > *:nth-child(3) { animation-delay: 0.3s; }
-.grid-fade > *:nth-child(4) { animation-delay: 0.4s; }
-.grid-fade > *:nth-child(5) { animation-delay: 0.5s; }
-.grid-fade > *:nth-child(6) { animation-delay: 0.6s; }
-
-/* Section des templates */
-.templates-section {
-  background: var(--color-surface-alt);
+/* Styles pour les sections */
+.section {
   padding: 6rem 0;
   position: relative;
+  overflow: hidden;
 }
 
-.templates-grid {
-  margin-top: 3rem;
+/* ---------------------------------------------------------- */
+/*  5. Navigation (Styles pour la barre de navigation)        */
+/* ---------------------------------------------------------- */
+
+/* Styles de base pour la navigation */
+.nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 50;
+  background: rgba(247, 244, 239, 0.85);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid rgba(198, 170, 131, 0.2);
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-/* Decorative Elements */
-.floating-hearts {
+/* Styles pour la navigation défilée */
+.nav-scrolled {
+  background: rgba(46, 45, 43, 0.98);
+  box-shadow: 0 4px 30px rgba(28, 28, 28, 0.1);
+  border-bottom: 1px solid rgba(198, 170, 131, 0.3);
+}
+
+/* Styles pour le conteneur de la navigation */
+.nav-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 5rem;
+  padding: 0 2rem;
+  max-width: 1400px;
+  margin: 0 auto;
+  transition: height 0.3s ease;
+}
+
+/* Réduction de la hauteur de la navigation défilée */
+.nav-scrolled .nav-container {
+  height: 4rem;
+}
+
+/* Styles pour le logo */
+.nav-logo {
+  position: relative;
+  font-family: var(--font-serif);
+  font-size: 1.75rem;
+  font-weight: 700;
+  color: var(--color-primary);
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  transition: all 0.3s ease;
+  letter-spacing: -0.02em;
+}
+
+/* Changement de couleur et de taille du logo défilé */
+.nav-scrolled .nav-logo {
+  color: var(--color-accent);
+  font-size: 1.5rem;
+}
+
+/* Styles pour le texte du logo */
+.logo-text {
+  position: relative;
+  z-index: 1;
+}
+
+/* Styles pour le point du logo */
+.logo-dot {
   position: absolute;
+  right: -8px;
+  bottom: 2px;
+  width: 6px;
+  height: 6px;
+  background: var(--color-accent);
+  border-radius: 50%;
+  opacity: 0;
+  transform: scale(0);
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Animation du point au survol du logo */
+.nav-logo:hover .logo-dot {
+  opacity: 1;
+  transform: scale(1);
+}
+
+/* Styles pour le menu de navigation */
+.nav-menu {
+  display: flex;
+  gap: 3rem;
+}
+
+/* Styles pour les liens de navigation */
+.nav-link {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 1rem;
+  font-weight: 500;
+  color: var(--color-primary);
+  text-decoration: none;
+  padding: 0.5rem 0;
+  transition: all 0.3s ease;
+  letter-spacing: 0.02em;
+}
+
+/* Changement de couleur des liens défilés */
+.nav-scrolled .nav-link {
+  color: var(--color-background);
+}
+
+/* Animation de la ligne sous les liens */
+.nav-link::before {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 1px;
+  background: var(--color-accent);
+  transform: scaleX(0);
+  transform-origin: right;
+  transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Affichage de la ligne au survol et pour le lien actif */
+.nav-link:hover::before,
+.nav-link-active::before {
+  transform: scaleX(1);
+  transform-origin: left;
+}
+
+/* Styles pour l'icône des liens */
+.nav-link-icon {
+  font-size: 1.1em;
+  opacity: 0.8;
+  transform: translateY(0);
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Animation de l'icône au survol */
+.nav-link:hover .nav-link-icon {
+  opacity: 1;
+  transform: translateY(-2px) scale(1.1);
+  color: var(--color-accent);
+}
+
+/* Styles pour le bouton du menu mobile */
+.menu-button {
+  display: none;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0.5rem;
+  color: var(--color-primary);
+  transition: all 0.3s ease;
+  z-index: 51;
+}
+
+/* Changement de couleur du bouton défilé */
+.nav-scrolled .menu-button {
+  color: var(--color-background);
+}
+
+/* Styles pour l'intérieur du bouton */
+.menu-button-inner {
+  width: 24px;
+  height: 20px;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+/* Styles pour les barres du bouton */
+.menu-button-inner span {
+  display: block;
+  width: 100%;
+  height: 2px;
+  background: currentColor;
+  border-radius: 2px;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Animation des barres lorsque le menu est actif */
+.menu-button-active span:nth-child(1) {
+  transform: translateY(9px) rotate(45deg);
+  background: var(--color-accent);
+}
+
+.menu-button-active span:nth-child(2) {
+  opacity: 0;
+  transform: translateX(-10px);
+}
+
+.menu-button-active span:nth-child(3) {
+  transform: translateY(-9px) rotate(-45deg);
+  background: var(--color-accent);
+}
+
+/* ---------------------------------------------------------- */
+/*  6. Hero Section (Styles pour la section d'accueil)        */
+/* ---------------------------------------------------------- */
+
+/* Styles de base pour la section Hero */
+.hero {
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  background: linear-gradient(135deg, var(--color-background) 0%, #F0EBE4 100%);
+}
+
+/* Styles pour le canvas des particules */
+.particles-canvas {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+}
+
+/* Styles pour le contenu de la section Hero */
+.hero-content {
+  position: relative;
+  z-index: 2;
+  text-align: center;
+  max-width: 800px;
+  padding: 2rem;
+}
+
+/* Styles pour le titre de la section Hero */
+.hero-title {
+  font-size: 4rem;
+  margin-bottom: 1.5rem;
+  color: var(--color-primary);
+}
+
+/* Styles pour le texte mis en évidence dans le titre */
+.hero-title .highlight {
+  color: var(--color-secondary);
+  position: relative;
+  display: inline-block;
+}
+
+/* Animation de la ligne sous le texte mis en évidence */
+.hero-title .highlight::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background: var(--color-secondary);
+  transform: scaleX(0);
+  transform-origin: right;
+  transition: transform 0.6s cubic-bezier(0.19, 1, 0.22, 1);
+}
+
+/* Affichage de la ligne au survol du titre */
+.hero-title:hover .highlight::after {
+  transform: scaleX(1);
+  transform-origin: left;
+}
+
+/* Styles pour le sous-titre de la section Hero */
+.hero-subtitle {
+  font-size: 1.25rem;
+  color: var(--color-text-light);
+  margin-bottom: 2rem;
+}
+
+/* Styles pour les boutons d'action de la section Hero */
+.hero-cta {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+}
+
+/* ---------------------------------------------------------- */
+/*  7. Buttons (Styles pour les boutons)                      */
+/* ---------------------------------------------------------- */
+
+/* Styles de base pour les boutons */
+.btn {
+  padding: 1rem 2rem;
+  border-radius: 50px;
+  font-weight: 500;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  cursor: pointer;
+  border: none;
+  font-size: 1rem;
+}
+
+/* Styles pour le bouton principal */
+.btn-primary {
+  background: var(--color-primary);
+  color: var(--color-surface);
+}
+
+/* Animation au survol du bouton principal */
+.btn-primary:hover {
+  background: var(--color-secondary);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 15px var(--shadow-md);
+}
+
+/* Styles pour le bouton secondaire */
+.btn-secondary {
+  background: transparent;
+  color: var(--color-primary);
+  border: 2px solid var(--color-primary);
+}
+
+/* Animation au survol du bouton secondaire */
+.btn-secondary:hover {
+  background: var(--color-primary);
+  color: var(--color-surface);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 15px var(--shadow-md);
+}
+
+/* ---------------------------------------------------------- */
+/*  8. Hero Decoration (Styles pour les éléments décoratifs)   */
+/* ---------------------------------------------------------- */
+
+/* Styles pour la décoration de la section Hero */
+.hero-decoration {
+  position: absolute;
+  top: 0;
+  left: 0;
   width: 100%;
   height: 100%;
   pointer-events: none;
   z-index: 1;
 }
 
-.heart {
+/* Styles pour les éléments flottants */
+.floating-element {
   position: absolute;
-  width: 20px;
-  height: 20px;
-  background: var(--color-rose-light);
-  transform: rotate(45deg);
+  background: var(--color-secondary);
   opacity: 0.1;
-  animation: float-heart 20s linear infinite;
-}
-
-.heart::before,
-.heart::after {
-  content: '';
-  position: absolute;
-  width: 20px;
-  height: 20px;
   border-radius: 50%;
-  background: inherit;
+  animation: float 8s infinite ease-in-out;
 }
 
-.heart::before {
-  left: -10px;
+/* Styles spécifiques pour chaque élément flottant */
+.floating-element:nth-child(1) {
+  width: 300px;
+  height: 300px;
+  top: -150px;
+  right: -150px;
+  animation-delay: 0s;
 }
 
-.heart::after {
-  top: -10px;
+.floating-element:nth-child(2) {
+  width: 200px;
+  height: 200px;
+  bottom: -100px;
+  left: -100px;
+  animation-delay: -2s;
 }
 
-@keyframes float-heart {
-  0% {
-    transform: rotate(45deg) translate(0, 0);
-    opacity: 0;
+.floating-element:nth-child(3) {
+  width: 150px;
+  height: 150px;
+  top: 50%;
+  right: 10%;
+  animation-delay: -4s;
+}
+
+/* Animation des éléments flottants */
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0) rotate(0deg);
   }
   50% {
-    opacity: 0.1;
-  }
-  100% {
-    transform: rotate(45deg) translate(100px, -100px);
-    opacity: 0;
+    transform: translateY(-20px) rotate(5deg);
   }
 }
 
-/* Animation Delays */
-.delay-1 { animation-delay: 0.1s; }
-.delay-2 { animation-delay: 0.2s; }
-.delay-3 { animation-delay: 0.3s; }
-.delay-4 { animation-delay: 0.4s; }
+/* ---------------------------------------------------------- */
+/*  9. Responsive Design (Styles pour les écrans plus petits)  */
+/* ---------------------------------------------------------- */
 
-/* Menu mobile simple (retour à la version stable) */
-.mobile-menu-simple {
+/* Styles pour les écrans de 768px et moins */
+@media (max-width: 768px) {
+  .hero-title {
+    font-size: 2.5rem;
+  }
+
+  .hero-subtitle {
+    font-size: 1.1rem;
+  }
+
+  .hero-cta {
+    flex-direction: column;
+  }
+
+  .btn {
+    width: 100%;
+  }
+}
+
+/* ---------------------------------------------------------- */
+/* 10. Animations (Styles pour les animations)               */
+/* ---------------------------------------------------------- */
+
+/* Animation de fondu */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Classe pour l'animation de fondu */
+.fade-up {
+  animation: fadeIn 0.8s ease-out forwards;
+}
+
+/* Délais d'animation */
+.delay-1 { animation-delay: 0.2s; }
+.delay-2 { animation-delay: 0.4s; }
+.delay-3 { animation-delay: 0.6s; }
+.delay-4 { animation-delay: 0.8s; }
+
+/* ---------------------------------------------------------- */
+/* 11. Cards (Styles pour les cartes)                         */
+/* ---------------------------------------------------------- */
+
+/* Styles de base pour les cartes */
+.card {
+  background: var(--color-surface);
+  border-radius: 1rem;
+  padding: 1.5rem;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+  overflow: hidden;
+  border: 1px solid rgba(var(--primary-rgb), 0.1);
+  height: 100%;
   display: flex;
   flex-direction: column;
-  background: linear-gradient(135deg, #f7f4ef 80%, #f4d0d0 100%);
-  position: fixed;
-  top: 5rem;
+}
+
+/* Ligne de couleur en haut de la carte */
+.card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 4px;
+  background: linear-gradient(90deg,
+    var(--color-rose),
+    var(--color-accent),
+    var(--color-rose));
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+/* Animation au survol de la carte */
+.card:hover {
+  transform: translateY(-8px);
+  box-shadow: 
+    0 20px 25px -5px rgba(0, 0, 0, 0.1),
+    0 10px 10px -5px rgba(0, 0, 0, 0.04);
+}
+
+/* Affichage de la ligne de couleur au survol */
+.card:hover::before {
+  opacity: 1;
+}
+
+/* Styles pour l'image de la carte */
+.card-image {
+  border-radius: 0.5rem;
+  overflow: hidden;
+  margin: -1.5rem -1.5rem 1.5rem -1.5rem;
+  position: relative;
+}
+
+/* Effet de dégradé sur l'image */
+.card-image::after {
+  content: '';
+  position: absolute;
+  top: 0;
   left: 0;
   right: 0;
-  box-shadow: 0 12px 32px rgba(198,170,131,0.10), 0 2px 8px rgba(0,0,0,0.04);
-  z-index: 9999;
-  padding: 2.5rem 0 2rem 0;
-  border-bottom-left-radius: 2rem;
-  border-bottom-right-radius: 2rem;
-  border-top: 1px solid #e5ccba;
-  animation: fadeInMenu 0.4s cubic-bezier(0.4,0,0.2,1);
+  bottom: 0;
+  background: linear-gradient(
+    to bottom,
+    transparent 0%,
+    rgba(0, 0, 0, 0.1) 100%
+  );
+  opacity: 0;
+  transition: opacity 0.3s ease;
 }
 
-@keyframes fadeInMenu {
-  from { opacity: 0; transform: translateY(-20px); }
-  to   { opacity: 1; transform: translateY(0); }
+/* Affichage du dégradé au survol */
+.card:hover .card-image::after {
+  opacity: 1;
 }
 
-.mobile-menu-link {
+/* Styles pour le titre de la carte */
+.card-title {
   font-size: 1.5rem;
-  font-family: var(--font-serif);
+  margin-bottom: 0.75rem;
   color: var(--color-primary);
-  text-decoration: none;
-  padding: 1.2rem 2.5rem;
-  border-radius: 1.5rem;
-  margin: 0.2rem 1.5rem;
-  transition: background 0.2s, color 0.2s, box-shadow 0.2s, transform 0.2s;
-  text-align: left;
-  display: flex;
-  align-items: center;
-  gap: 1.2rem;
+}
+
+/* Styles pour la description de la carte */
+.card-description {
+  color: var(--color-text-light);
+  margin-bottom: 1.5rem;
+  flex-grow: 1;
+}
+
+/* ---------------------------------------------------------- */
+/* 12. Forms (Styles pour les formulaires)                     */
+/* ---------------------------------------------------------- */
+
+/* Styles pour le groupe de formulaire */
+.form-group {
+  margin-bottom: var(--spacing-lg);
+}
+
+/* Styles pour le label du formulaire */
+.form-label {
+  display: block;
+  margin-bottom: var(--spacing-sm);
   font-weight: 500;
-  box-shadow: 0 1px 4px rgba(198,170,131,0.04);
-  letter-spacing: 0.01em;
-}
-.mobile-menu-link:hover {
-  background: linear-gradient(90deg, #fbe4e4 0%, #c6aa83 100%);
-  color: var(--color-primary);
-  box-shadow: 0 4px 16px rgba(198,170,131,0.12);
-  transform: scale(1.04);
+  color: var(--color-text);
 }
 
-.mobile-menu-icon {
-  font-size: 2rem;
-  color: var(--color-accent);
-  flex-shrink: 0;
+/* Styles pour l'input du formulaire */
+.form-input {
+  width: 100%;
+  padding: var(--spacing-md);
+  border: 2px solid rgba(var(--primary-rgb), 0.1);
+  border-radius: var(--radius-md);
+  font-size: 1rem;
+  transition: all 0.3s ease;
+  background: var(--color-surface);
+  color: var(--color-text);
 }
 
-.mobile-menu-link-active {
-  background: #f4d0d0;
-  color: var(--color-primary);
-  font-weight: 600;
-  box-shadow: 0 2px 8px rgba(198,170,131,0.10);
+/* Styles pour l'input au focus */
+.form-input:focus {
+  outline: none;
+  border-color: var(--color-accent);
+  box-shadow: 0 0 0 3px rgba(var(--accent-rgb), 0.1);
 }
 
-@media (max-width: 768px) {
-  .nav-menu {
-    display: none;
+/* ---------------------------------------------------------- */
+/* 13. Animations (Animations avancées)                       */
+/* ---------------------------------------------------------- */
+
+/* Animation de fondu et de glissement vers le haut */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
   }
-  .menu-button {
-    display: block;
-  }
-  .nav-container {
-    padding: 0 1.5rem;
-  }
-  .nav-logo {
-    font-size: 1.5rem;
+  to {
+    opacity: 1;
+    transform: translateY(0);
   }
 }
 
-/* Supprimer overlay et styles complexes */
-.mobile-menu,
-.mobile-menu-overlay,
-.nav-logo--white,
-.menu-button--white {
-  display: none !important;
+/* Animation de pulsation */
+@keyframes pulse {
+  0%, 100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.1);
+  }
 }
+
+/* Animation de flottement */
+@keyframes float {
+  0%, 100% { transform: translate3d(0, 0, 0); }
+  50% { transform: translate3d(0, -10px, 0); }
+}
+
+/* Animation de scintillement */
+@keyframes shimmer {
+  0% { background-position: -100% 0; }
+  100% { background-position: 100% 0; }
+}
+
+/* Animation de révélation */
+@keyframes reveal {
+  0% { transform: scaleX(0); }
+  100% { transform: scaleX(1); }
+}
+
+/* Animation de fondu et d'échelle */
+@keyframes fadeScale {
+  0% {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* Classes d'animation */
+.animate-float {
+  animation: float 6s ease-in-out infinite;
+  will-change: transform;
+}
+
+.animate-shine {
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(198, 170, 131, 0.2),
+    transparent
+  );
+  background-size: 200% 100%;
+  animation: shimmer 3s infinite;
+  will-change: background-position;
+}
+
+.animate-reveal {
+  position: relative;
+}
+
+.animate-reveal::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: var(--color-accent);
+  transform-origin: left;
+  animation: reveal 1.5s cubic-bezier(0.77, 0, 0.175, 1) forwards;
+}
+
+.fade-slide-up {
+  opacity: 0;
+  animation: fadeSlideUp 0.8s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+  will-change: transform, opacity;
+}
+
+/* ---------------------------------------------------------- */
+/* 14. Effets de survol (Styles pour les effets de survol)    */
+/* ---------------------------------------------------------- */
+
+/* Effet de soulèvement au survol */
+.hover-lift {
+  transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  will-change: transform;
+}
+
+.hover-lift:hover {
+  transform: translate3d(0, -5px, 0);
+}
+
+/* Effet de lueur au survol */
+.hover-glow {
+  transition: box-shadow 0.3s ease;
+}
+
+.hover-glow:hover {
+  box-shadow: 0 0 20px rgba(198, 170, 131, 0.3);
+}
+
+/* ---------------------------------------------------------- */
+/* 15. Effets de texte (Styles pour les effets de texte)      */
+/* ---------------------------------------------------------- */
+
+/* Texte avec dégradé */
+.text-gradient {
+  background: linear-gradient(135deg, 
+    var(--color-primary) 0%,
+    var(--color-accent) 50%,
+    var(--color-secondary) 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-size: 200% 200%;
+  animation: shimmer 8s linear infinite;
+}
+
+/* Texte avec ombre */
+.text-shadow {
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* Texte avec lueur */
+.text-glow {
+  text-shadow: 0 0 10px rgba(198, 170, 131, 0.5);
+  transition: text-shadow 0.3s ease;
+}
+
+.text-glow:hover {
+  text-shadow: 0 0 20px rgba(198, 170, 131, 0.8);
+}
+
+/* ---------------------------------------------------------- */
+/* 16. Effet de grain (Styles pour l'effet de grain)          */
+/* ---------------------------------------------------------- */
+
+/* Conteneur avec effet de grain */
+.grain {
+  position: relative;
+  overflow: visible;
+}
+
+/* Effet de grain en SVG */
+.grain::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 512 512' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%' height='100%' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+  opacity: 0.03;
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* ---------------------------------------------------------- */
+/* 17. Effet de parallaxe (Styles pour l'effet de parallaxe)  */
+/* ---------------------------------------------------------- */
+
+/* Conteneur avec effet de parallaxe */
+.parallax {
+  transform: translate3d(0, var(--parallax-y, 0), 0);
+  will-change: transform;
+  position: relative;
+  z-index: 1;
+}
+
+/* ---------------------------------------------------------- */
+/* 18. Container principal (Styles pour le container principal)*/
+/* ---------------------------------------------------------- */
+
+/* Styles pour le container principal */
+.main-container {
+  position: relative;
+  z-index: 1;
+  min-height: 100vh;
+  width: 100%;
+}
+
+/* ---------------------------------------------------------- */
+/* 19. Grid System (Styles pour le système de grille)         */
+/* ---------------------------------------------------------- */
+
+/* Styles pour la grille */
+.grid {
+  display: grid;
+  gap: 2rem;
+  width: 100%;
+}
+
+/* Grille à 2 colonnes pour les écrans moyens */
+@media (min-width: 640px) {
+  .grid-cols-2 {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* Grille à 4 colonnes pour les grands écrans */
+@media (min-width: 1024px) {
+  .grid-cols-4 {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+/* ---------------------------------------------------------- */
+/* 20. Utilities (Classes utilitaires)                        */
+/* ------------------------------------------------

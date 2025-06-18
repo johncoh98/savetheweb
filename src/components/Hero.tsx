@@ -1,125 +1,112 @@
 "use client"
 
-import { useEffect, useRef } from 'react'
 import { motion } from 'framer-motion'
 import Link from 'next/link'
 
-export default function Hero() {
-  const canvasRef = useRef<HTMLCanvasElement>(null)
+const HeroContent = () => (
+  <div className="min-h-[90vh] flex flex-col items-center justify-center relative z-10">
+    <motion.div 
+      className="max-w-4xl mx-auto px-4 text-center"
+      initial={{ opacity: 0, y: 20 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.8 }}
+    >
+      {/* Titre principal avec gradient animé */}
+      <motion.h1 
+        className="text-7xl md:text-8xl font-bold mb-8"
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ delay: 0.2 }}
+      >
+        <span className="inline-block bg-clip-text text-transparent bg-gradient-to-r from-rose-400 via-fuchsia-500 to-indigo-500 animate-gradient">
+          Créez votre site
+        </span>
+        <span className="block mt-2 text-5xl md:text-6xl text-gray-800 dark:text-gray-100">
+          de mariage unique
+        </span>
+      </motion.h1>
 
-  useEffect(() => {
-    const canvas = canvasRef.current
-    if (!canvas) return
+      {/* Sous-titre avec animation délayée */}
+      <motion.p 
+        className="text-xl md:text-2xl text-gray-600 dark:text-gray-300 mb-12 max-w-2xl mx-auto"
+        initial={{ opacity: 0, y: 20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ delay: 0.4 }}
+      >
+        Un site web personnalisé pour immortaliser votre grand jour
+      </motion.p>
 
-    const ctx = canvas.getContext('2d')
-    if (!ctx) return
-
-    // Configuration du canvas
-    const resizeCanvas = () => {
-      canvas.width = window.innerWidth
-      canvas.height = window.innerHeight
-    }
-    resizeCanvas()
-    window.addEventListener('resize', resizeCanvas)
-
-    // Particules
-    const particles: Array<{
-      x: number
-      y: number
-      size: number
-      speedX: number
-      speedY: number
-      opacity: number
-    }> = []
-
-    // Création des particules
-    const createParticles = () => {
-      for (let i = 0; i < 50; i++) {
-        particles.push({
-          x: Math.random() * canvas.width,
-          y: Math.random() * canvas.height,
-          size: Math.random() * 3 + 1,
-          speedX: Math.random() * 0.5 - 0.25,
-          speedY: Math.random() * 0.5 - 0.25,
-          opacity: Math.random() * 0.5 + 0.2
-        })
-      }
-    }
-    createParticles()
-
-    // Animation des particules
-    const animate = () => {
-      ctx.clearRect(0, 0, canvas.width, canvas.height)
-      
-      particles.forEach(particle => {
-        ctx.beginPath()
-        ctx.arc(particle.x, particle.y, particle.size, 0, Math.PI * 2)
-        ctx.fillStyle = `rgba(214, 184, 160, ${particle.opacity})`
-        ctx.fill()
-
-        particle.x += particle.speedX
-        particle.y += particle.speedY
-
-        if (particle.x < 0 || particle.x > canvas.width) particle.speedX *= -1
-        if (particle.y < 0 || particle.y > canvas.height) particle.speedY *= -1
-      })
-
-      requestAnimationFrame(animate)
-    }
-    animate()
-
-    return () => {
-      window.removeEventListener('resize', resizeCanvas)
-    }
-  }, [])
-
-  return (
-    <section className="hero">
-      <canvas ref={canvasRef} className="particles-canvas" />
-      <div className="container">
-        <motion.div 
-          className="hero-content"
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, ease: "easeOut" }}
+      {/* Conteneur des boutons avec animation stagger */}
+      <motion.div 
+        className="flex flex-col sm:flex-row gap-6 justify-center items-center"
+        initial={{ opacity: 0, y: 20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ delay: 0.6 }}
+      >
+        <Link 
+          href="/templates" 
+          className="group relative inline-flex items-center justify-center px-8 py-4 text-lg font-medium
+                   bg-gradient-to-r from-rose-500 to-fuchsia-500 text-white rounded-full
+                   transform transition-all duration-300 ease-out
+                   hover:scale-105 hover:shadow-[0_0_30px_rgba(225,29,72,0.3)]"
         >
-          <motion.h1 
-            className="hero-title"
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.2, ease: "easeOut" }}
+          <span className="relative z-10">Découvrir nos templates</span>
+          <motion.span 
+            className="ml-2"
+            initial={{ x: 0 }}
+            whileHover={{ x: 5 }}
           >
-            Créez votre site de mariage
-            <span className="highlight"> unique et élégant</span>
-          </motion.h1>
-          <motion.p 
-            className="hero-subtitle"
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.4, ease: "easeOut" }}
+            →
+          </motion.span>
+        </Link>
+
+        <Link 
+          href="/examples" 
+          className="group relative inline-flex items-center justify-center px-8 py-4 text-lg font-medium
+                   border-2 border-gray-800 dark:border-white text-gray-800 dark:text-white rounded-full
+                   transform transition-all duration-300 ease-out
+                   hover:scale-105 hover:bg-gray-800 hover:text-white dark:hover:bg-white dark:hover:text-gray-800"
+        >
+          <span>Voir les exemples</span>
+          <motion.span 
+            className="ml-2"
+            initial={{ x: 0 }}
+            whileHover={{ x: 5 }}
           >
-            Un site web personnalisé pour immortaliser votre grand jour
-          </motion.p>
-          <motion.div 
-            className="hero-cta"
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.6, ease: "easeOut" }}
-          >
-            <button className="btn btn-primary">
-              Découvrir nos templates
-            </button>
-            <button className="btn btn-secondary">
-              Voir les exemples
-            </button>
-          </motion.div>
-        </motion.div>
-      </div>
-      <div className="hero-decoration">
-        <div className="floating-element" />
-        <div className="floating-element" />
-        <div className="floating-element" />
-      </div>
+            →
+          </motion.span>
+        </Link>
+      </motion.div>
+
+      {/* Badge de confiance */}
+      <motion.div 
+        className="mt-16"
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ delay: 0.8 }}
+      >
+        <div className="inline-flex items-center px-4 py-2 rounded-full bg-gray-50 dark:bg-gray-800">
+          <span className="text-amber-500 mr-2">★</span>
+          <p className="text-sm text-gray-600 dark:text-gray-300">
+            Plus de 1000+ couples nous font confiance
+          </p>
+        </div>
+      </motion.div>
+    </motion.div>
+  </div>
+)
+
+export default function Hero() {
+  return (
+    <section className="relative w-full overflow-hidden bg-white dark:bg-gray-900">
+      {/* Effet de grain subtil */}
+      <div className="absolute inset-0 bg-noise opacity-[0.02] pointer-events-none" />
+      
+      {/* Cercle décoratif */}
+      <div className="absolute -top-40 -right-40 w-96 h-96 rounded-full bg-gradient-to-br from-rose-100 to-fuchsia-100 dark:from-rose-900/20 dark:to-fuchsia-900/20 blur-3xl" />
+      <div className="absolute -bottom-40 -left-40 w-96 h-96 rounded-full bg-gradient-to-br from-indigo-100 to-violet-100 dark:from-indigo-900/20 dark:to-violet-900/20 blur-3xl" />
+      
+      <HeroContent />
     </section>
   )
-} 
+}
